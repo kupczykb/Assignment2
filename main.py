@@ -53,7 +53,16 @@ def main():
 
     while True:
         # Show your menu here.
-
+        print("")
+        print("MAIN MENU: The Cost of College")
+        print("1. Cost per semester")
+        print("2. Cost per month")
+        print("3. Cost per day")
+        print("4. Cost per credit")
+        print("5. Cost per 1 class period")
+        print("6. Worth it? add-on (not implemented yet)") #CHANGE THIS TEXT ONCE IMPLEMENTED
+        print("Q. Quit")
+        print("")
         choice = input("Choose an option: ")
 
         if choice == "Q":
@@ -67,8 +76,12 @@ def main():
         elif choice == "4":
             print(f"Cost per credit: ${cost_per_credit(cost_per_year, credits_this_semester):.2f}")
         elif choice == "5":
-            print(f"Cost per class: ${cost_per_class(cost_per_year, credits_this_semester):.2f}")
-
+            print(f"Cost per 1 class period: ${cost_per_class(cost_per_year, credits_this_semester):.2f}")
+        elif choice == "6":
+            # Not implemented yet, this text is just a placeholder for the future
+            print("Worth it? add-on (not implemented yet)")
+        else:   
+            print("Invalid option. Please try again.")
 
 # ---- LAUNCH: do not change ----
 if __name__ == "__main__":
