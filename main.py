@@ -44,7 +44,10 @@ def cost_per_class(annual_cost, credits):
     class_cost = cost_per_credit(annual_cost, credits) * CS1430_CREDITS / CS1430_MEETINGS_PER_SEMESTER
     return class_cost
 
-
+def cost_of_skipped(class_period_cost, skipped_classes):
+    """Give back the cost of skipped class periods by multiplying the cost of one class period by the number of skipped classes."""
+    total_skipped_cost = (class_period_cost) * skipped_classes
+    return total_skipped_cost
 # ---- PROGRAM ----
 
 def main():
@@ -60,7 +63,7 @@ def main():
         print("3. Cost per day")
         print("4. Cost per credit")
         print("5. Cost per 1 class period")
-        print("6. Worth it? add-on (not implemented yet)") #CHANGE THIS TEXT ONCE IMPLEMENTED
+        print("6. Cost of skipped class periods. Worth it?") 
         print("Q. Quit")
         print("")
         choice = input("Choose an option: ")
@@ -78,8 +81,9 @@ def main():
         elif choice == "5":
             print(f"Cost per 1 class period: ${cost_per_class(cost_per_year, credits_this_semester):.2f}")
         elif choice == "6":
-            # Not implemented yet, this text is just a placeholder for the future
-            print("Worth it? add-on (not implemented yet)")
+            skipped_classes = int(input("Enter the number of class periods you skipped: "))
+            class_period_cost = cost_per_class(cost_per_year, credits_this_semester)
+            print(f"Cost of skipped class periods: ${cost_of_skipped(class_period_cost, skipped_classes):.2f}")
         else:   
             print("Invalid option. Please try again.")
 
